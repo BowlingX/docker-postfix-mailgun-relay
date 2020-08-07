@@ -19,7 +19,7 @@ docker run -i -t --rm \
     --name postfix-mailgun-relay \
     -p 9025:25 \
     -e SYSTEM_TIMEZONE="Europe/Berlin" \
-    -e MYNETWORKS="10.0.0.0/8 172.0.0.0/8 192.168.0.0/16" \                    
+    -e MYNETWORKS="10.0.0.0/8 172.16.0.0/12 192.168.0.0/16" \                    
     -e EMAIL="postmaster@mg.{YOURDOMAIN}" \
     -e EMAILPASS="{PASSWORD}" \
     ralfherzog/docker-postfix-mailgun-relay
@@ -37,7 +37,7 @@ services:
   container_name: "postfix-mailgun-relay"
   environment:
    SYSTEM_TIMEZONE: "Europe/Berlin"
-   MYNETWORKS: "10.0.0.0/8 172.0.0.0/8 192.168.0.0/16"
+   MYNETWORKS: "10.0.0.0/8 172.16.0.0/12 192.168.0.0/16"
    EMAIL: "postmaster@mg.{YOURDOMAIN}"
    EMAILPASS: "{PASSWORD}"
   ports:
